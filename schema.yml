@@ -40,7 +40,7 @@ variables:
     required: true
     title: "Tipo de Acesso ao Bucket"
     default: "NoPublicAccess"
-      enum:
-        - NoPublicAccess
-        - PublicRead
+    enum:
+      - NoPublicAccess
+      - PublicRead
     
