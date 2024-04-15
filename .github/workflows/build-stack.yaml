@@ -4,7 +4,9 @@ on:
   push:
     tags:
       - "v*"
-permissions: write-all
+permissions:
+  releases: write 
+
 jobs:
   build-stack:
     name: Build Stack
@@ -37,6 +39,8 @@ jobs:
             Latest release
           draft: false
           prerelease: false
+          permissions:
+            releases: write
 
       - name: 'Upload Release Asset (Stack)'
         if: contains(github.ref, 'v')
