@@ -1,9 +1,10 @@
-permissions: write-all
+
 name: oci-terraform-build-stack
 on:
   push:
     tags:
       - "v*"
+permissions: write-all
 jobs:
   build-stack:
     name: Build Stack
