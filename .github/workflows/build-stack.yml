@@ -1,13 +1,14 @@
-name: oci-terrform-build-stack
+name: oci-terraform-build-stack
 on:
   push:
     tags:
-      -"v"
+      - "v*"
 jobs:
   build-stack:
     name: Build Stack
     runs-on: ubuntu-latest
     steps:
+
       - name: 'Checkout'
         uses: actions/checkout@v2
 
@@ -31,11 +32,11 @@ jobs:
           tag_name: ${{github.ref}}
           release_name: Release ${{github.ref}}
           body: |
-            Latest Release
+            Latest release
           draft: false
           prerelease: false
 
-      - name: 'Upload Release Asset ( Stack)'
+      - name: 'Upload Release Asset (Stack)'
         if: contains(github.ref, 'v')
         id: upload-release-asset-stack
         uses: actions/upload-release-asset@v1
