@@ -2,15 +2,15 @@ provider "oci" {
     region = var.region
 }
 
-variable "compartment_ocid" {}    
+variable "compartment_ocid" {}
 variable "region" {}
 variable "bucket_name" {}
 
 data "oci_objectstorage_namespace" "namespace" {
-    compartment_id = var.compartment_ocid
+  compartment_id = var.compartment_ocid
 }
 
-resource "oci_objectstorage_bucket" "create_bucket"{
+resource "oci_objectstorage_bucket" "create_bucket" {
     compartment_id = var.compartment_ocid
     name = var.bucket_name
     namespace = data.oci_objectstorage_namespace.namespace.namespace
